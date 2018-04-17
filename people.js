@@ -20,10 +20,21 @@ const ageSorter = function(people, ageToCheck) {
   if (isNaN(ageToCheck)) {
     console.log('You need to input a number.')
   } else {
-    peopleArray.people.filter(elem => elem.age > ageToCheck)
-    .map(elem => {
-      console.log(`${elem.name} is old. They are ${elem.age} years old`);
-    });
+    const filterArray = peopleArray.people.filter(elem => elem.age > ageToCheck)
+
+    if (filterArray.length === 1) {
+      filterArray.map(elem => {
+        console.log(`You know ${elem.name} is over ${elem.age} and old enough to know better!`);
+      });
+    } else {
+      let builtString = ['You know '];
+      filterArray.map(elem => {
+        builtString.push(elem.name)
+      });
+      builtString.push(`are old enough to know better!`)
+      builtString.toString();
+      console.log(builtString);
+    }
   }
   
 
