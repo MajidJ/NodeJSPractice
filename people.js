@@ -22,18 +22,26 @@ const ageSorter = function(people, ageToCheck) {
   } else {
     const filterArray = peopleArray.people.filter(elem => elem.age > ageToCheck)
 
+
+
     if (filterArray.length === 1) {
       filterArray.map(elem => {
-        console.log(`You know ${elem.name} is over ${elem.age} and old enough to know better!`);
+        console.log(`You know ${elem.name} is over ${ageToCheck} and old enough to know better!`);
       });
     } else {
-      let builtString = ['You know '];
-      filterArray.map(elem => {
-        builtString.push(elem.name)
+      // let builtString = 'You know ';
+      
+      const mapped = filterArray.map(elem => {
+        // builtString = builtString + elem.name + ", ";
+        return elem.name;
       });
-      builtString.push(`are old enough to know better!`)
-      builtString.toString();
-      console.log(builtString);
+    //   builtString.push(`are old enough to know better!`)
+    //   builtString.toString();
+      const string = mapped.join(", ");
+      const firstFormated = string.slice(0, string.lastIndexOf(","));
+      const secondFormated = string.slice(string.lastIndexOf(",") + 1);
+      const finalFormated = 'You know ' + firstFormated + ' and' + secondFormated + ' are over ' + ageToCheck + ' and are old enough to know better!';
+      console.log(finalFormated);
     }
   }
   
