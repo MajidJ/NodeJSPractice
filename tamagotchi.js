@@ -3,11 +3,11 @@
 // * Remember Tamagotchis? They were those little toys that contained "digital pets" which you could feed, pet, play with, and care for. Kind of like Furbies but a whole lot less terrifying. Over the next thirty minutes or so, you are going to create your own basic Tamagotchi clone using constructors.
 
 // * Create a constructor called "DigitalPal" which will create four properties and four methods...
-function DigitalPal(hungry, sleepy, bored, age) {
-    this.hungry = hungry;
-    this.sleepy = sleepy;
-    this.bored = bored;
-    this.age = age;
+function DigitalPal() {
+    this.hungry = false;
+    this.sleepy = false;
+    this.bored = true;
+    this.age = 0;
     this.feed = function() {
         if (hungry) {
             console.log('That was yummy!');
@@ -43,8 +43,8 @@ function DigitalPal(hungry, sleepy, bored, age) {
 }
 
 
-let dog = new DigitalPal(false, false, true, 0);
-let cat = new DigitalPal(false, false, true, 0);
+let dog = new DigitalPal();
+let cat = new DigitalPal();
 
 
 dog.outside = false;
