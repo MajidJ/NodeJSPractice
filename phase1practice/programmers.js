@@ -76,6 +76,7 @@ var inquirer = require("inquirer");
 let theTeam = [];
 
 const Programmer = require('./programmer-constructor');
+const numOfInputs = 2;
 
 
 // creates the printInfo method and applies it to all programmer objects
@@ -89,7 +90,7 @@ var count = 0;
 
 var askQuestion = function() {
   // if statement to ensure that our questions are only asked five times
-  if (count < 3) {
+  if (count < numOfInputs) {
     // runs inquirer and asks the user a series of questions whose replies are
     // stored within the variable answers inside of the .then statement
     inquirer.prompt([
