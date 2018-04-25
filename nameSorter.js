@@ -15,21 +15,15 @@ const nameSorter = names => {
   // You aweosme code here. Probably map(), slice(), sort() and charCodeAt()
   // as well as your spread operator and set() plus much, much more!!
 
-  names.map(function(name) {
-    name = name.toLowerCase().split("");
-    name[0] = name[0].toUpperCase();
-    name = name.join("");
-    if (dedupped.indexOf(name) === -1) {
-      dedupped.push(name);
-    }
-  })
-  dedupped.sort();
-  console.log(dedupped);
-}
+  const results = names.map(function(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  });
+  return [...new Set(results)];
+};
 
 // Don't uncomment until your require is working!
 
-console.log(nameSorter(names))
+console.log(nameSorter(names));
 // Expected output:
 // [ 'Cassandra', 'Josh', 'Miles', 'Owen' ]
 
